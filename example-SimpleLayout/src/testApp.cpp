@@ -18,10 +18,22 @@ void testApp::setup()
     layoutInfo.loadFont("mplus-1c-regular.ttf", 8);
     layoutInfo.setLineLength(ofGetWidth() - margin * 2);
     
-    layoutText.loadFont("mplus-1c-regular.ttf", 12);
+    layoutText.loadFont("DIN-Medium.otf", 12);
     layoutText.setLineLength(ofGetWidth() - margin * 2);
     
+    ofBuffer input = ofBufferFromFile("info.txt");
+
+    while(!input.isLastLine()){
+        //str+=(input.getNextLine()+"\n");
+        str.append(input.getNextLine()+"\n");
+        //str.append("\n");
+    }
+
+    //str=input.getText();
+    /*
 	str = "初音ミク. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida quam ut aliquet rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris ornare felis vitae enim fringilla, at pulvinar quam venenatis.\n \nSed facilisis malesuada nisi vitae gravida. Sed id nulla sit amet dolor luctus dignissim vel sit amet augue. Integer mi dolor, cursus non felis vitae, euismod sollicitudin enim. Suspendisse turpis orci, rhoncus eu metus eget, semper ornare purus. Donec quam tellus, varius a ligula vel, dignissim blandit dolor. Duis rutrum nisl felis, in tempor nulla gravida vitae.";
+     */
+     
 }
 
 //--------------------------------------------------------------
@@ -36,6 +48,9 @@ void testApp::draw()
 {
 	ofBackground(255);
 	
+    
+    
+    
     ofSetColor(128);
     layoutInfo.drawString("FPS: " + ofToString(ofGetFrameRate(), 2) + "\n" +
                           "Line Length (Mouse X): " + ofToString(layoutText.getLineLength()) + "\n" +
@@ -43,6 +58,8 @@ void testApp::draw()
                           "Alignment (1-4): " + alignment,
                           margin, 20);
     
+    ofSetColor(255,0,0);
+    ofRect(layoutText.getStringBoundingBox(str,margin,120));
     ofSetColor(0);
 	layoutText.drawString(str, margin, 120);
 }

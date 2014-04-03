@@ -21,6 +21,6 @@ class testApp : public ofBaseApp
 		void gotMessage(ofMessage msg);
     
         string str;
-        ofxFTGLFont textFont;
+        ofxFTGLSimpleLayout textFont;
         ofxFTGLFont infoFont;
 };

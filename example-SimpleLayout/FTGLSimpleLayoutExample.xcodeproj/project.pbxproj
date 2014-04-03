@@ -10,7 +10,6 @@
 		6F951BC717CCD0D900B4213F /* libftgl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F951BB817CCD0D900B4213F /* libftgl.a */; };
 		6F951BC817CCD0D900B4213F /* libftgl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F951BBA17CCD0D900B4213F /* libftgl.a */; };
 		6F951BC917CCD0D900B4213F /* libftgl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F951BBD17CCD0D900B4213F /* libftgl.a */; };
-		6F951BCA17CCD0D900B4213F /* ftgl_static.lib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F951BBF17CCD0D900B4213F /* ftgl_static.lib */; };
 		6F951BCB17CCD0D900B4213F /* ofxFTGLFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6F951BC217CCD0D900B4213F /* ofxFTGLFont.cpp */; };
 		6FD7A71E17CDEB6F00CC92E0 /* ofxFTGLSimpleLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6FD7A71C17CDEB6F00CC92E0 /* ofxFTGLSimpleLayout.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
@@ -150,7 +149,6 @@
 				6F951BC717CCD0D900B4213F /* libftgl.a in Frameworks */,
 				6F951BC817CCD0D900B4213F /* libftgl.a in Frameworks */,
 				6F951BC917CCD0D900B4213F /* libftgl.a in Frameworks */,
-				6F951BCA17CCD0D900B4213F /* ftgl_static.lib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

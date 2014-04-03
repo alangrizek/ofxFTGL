@@ -6,8 +6,9 @@ void testApp::setup()
 	ofSetFrameRate(60);
 	ofSetVerticalSync(true);
     
-	str = "Hey, how's it going?";
-    textFont.loadFont("mplus-1c-regular.ttf", 36);
+	str = "Hey how's it going?";
+    textFont.loadFont("DIN-Medium.otf", 36);
+    textFont.setLineLength(ofGetWidth());
     infoFont.loadFont("mplus-1c-regular.ttf", 8);
 }
 
