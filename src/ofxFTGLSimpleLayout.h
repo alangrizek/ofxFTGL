@@ -34,6 +34,9 @@ class ofxFTGLSimpleLayout
 
         ofxFTGLTextAlignment getAlignment() const;
         void setAlignment(ofxFTGLTextAlignment alignment);
+    
+    static void TextToPixels(ofPixels* pix, string text, string font, int size, float width, float height, float margin=20, float spacing=0.85f, ofColor textColor=ofColor(255,255), ofColor backColor=ofColor(0,0), ofxFTGLTextAlignment alignment=FTGL_ALIGN_JUSTIFY, bool shapes=false);
+    static float GetTextToPixelsHeight(string text, string font, int size, float width, float margin=20, float spacing=0.85f);
 
         FTSimpleLayout* layout;
 };

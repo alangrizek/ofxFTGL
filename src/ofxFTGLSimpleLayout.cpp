@@ -99,3 +99,34 @@ void ofxFTGLSimpleLayout::drawString(wstring s, float x, float y)
     layout->Render((wchar_t*)s.c_str());
     glPopMatrix();
 }
+
+float ofxFTGLSimpleLayout::GetTextToPixelsHeight(string text, string font, int size, float width, float margin, float spacing){
+    
+    ofxFTGLSimpleLayout textLayout;
+    textLayout.loadFont(font, size);
+    textLayout.setLineLength(width-margin*2);
+    textLayout.setLineSpacing(spacing);
+    FTBBox bbox = textLayout.layout->BBox(text.c_str());
+    return abs(bbox.Upper().Yf()-bbox.Lower().Yf());
+}
+
+void ofxFTGLSimpleLayout::TextToPixels(ofPixels* pix, string text, string font, int size, float width, float height, float margin, float spacing, ofColor textColor, ofColor backColor, ofxFTGLTextAlignment alignment, bool shapes){
+    ofFbo fbo;
+    fbo.allocate(width,height,GL_RGBA);
+    
+    ofxFTGLSimpleLayout textLayout;
+    textLayout.loadFont(font, size);
+    textLayout.setLineLength(width-margin*2);
+    textLayout.setLineSpacing(spacing);
+    textLayout.setAlignment(alignment);
+    
+    fbo.begin();
+    ofClear(backColor);
+    //glBlendFuncSeparate(GL_ONE, GL_SRC_COLOR, GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+    ofSetColor(textColor);
+    textLayout.drawString(text,margin,margin+textLayout.getLineHeight());
+    fbo.end();
+    
+    fbo.readToPixels(*pix);
+    return;
+}
