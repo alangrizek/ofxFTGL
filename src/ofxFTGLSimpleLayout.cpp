@@ -122,7 +122,7 @@ void ofxFTGLSimpleLayout::TextToPixels(ofPixels* pix, string text, string font, 
     
     fbo.begin();
     ofClear(backColor);
-    //glBlendFuncSeparate(GL_ONE, GL_SRC_COLOR, GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+    glBlendFuncSeparate(GL_ONE, GL_SRC_COLOR, GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
     ofSetColor(textColor);
     textLayout.drawString(text,margin,margin+textLayout.getLineHeight());
     fbo.end();
