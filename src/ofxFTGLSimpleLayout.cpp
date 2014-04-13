@@ -107,7 +107,7 @@ float ofxFTGLSimpleLayout::GetTextToPixelsHeight(string text, string font, int s
     textLayout.setLineLength(width-margin*2);
     textLayout.setLineSpacing(spacing);
     FTBBox bbox = textLayout.layout->BBox(text.c_str());
-    return abs(bbox.Upper().Yf()-bbox.Lower().Yf());
+    return abs(bbox.Upper().Yf()-bbox.Lower().Yf()) + margin*2;
 }
 
 void ofxFTGLSimpleLayout::TextToPixels(ofPixels* pix, string text, string font, int size, float width, float height, float margin, float spacing, ofColor textColor, ofColor backColor, ofxFTGLTextAlignment alignment, bool shapes){
