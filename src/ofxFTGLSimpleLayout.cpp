@@ -68,7 +68,7 @@ ofRectangle ofxFTGLSimpleLayout::getStringBoundingBox(string s, float x, float y
     if (loaded) {
     	FTBBox bbox = layout->BBox(s.c_str());
 	    //return ofRectangle(x + bbox.Lower().Xf(), y + bbox.Lower().Yf(), bbox.Upper().Xf(), bbox.Upper().Yf());
-        return ofRectangle(x, y-getAscender(), abs(bbox.Lower().Xf()-bbox.Upper().Xf()), abs(bbox.Upper().Yf()-bbox.Lower().Yf()));
+        return ofRectangle(x, y-getAscender(), abs(bbox.Lower().Xf()-bbox.Upper().Xf()), abs(bbox.Upper().Yf()-bbox.Lower().Yf())+getAscender()+getDescender());
     }
 	return ofRectangle();
 }
@@ -106,8 +106,8 @@ float ofxFTGLSimpleLayout::GetTextToPixelsHeight(string text, string font, int s
     textLayout.loadFont(font, size);
     textLayout.setLineLength(width-margin*2);
     textLayout.setLineSpacing(spacing);
-    FTBBox bbox = textLayout.layout->BBox(text.c_str());
-    return abs(bbox.Upper().Yf()-bbox.Lower().Yf()) + margin*2;
+    ofRectangle rect = textLayout.getStringBoundingBox(text,0,0);
+    return rect.height + margin*2;
 }
 
 void ofxFTGLSimpleLayout::TextToPixels(ofPixels* pix, string text, string font, int size, float width, float height, float margin, float spacing, ofColor textColor, ofColor backColor, ofxFTGLTextAlignment alignment, bool shapes){
